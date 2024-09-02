@@ -1,34 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import one from '../assets/one.jpg'
-import two from '../assets/two.jpg'
+import one from '../assets/one.jpg';
+import two from '../assets/two.jpg';
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [
-one,
-two
-  ];
+  const images = [one, two];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      goToNextSlide();
     }, 10000); // 10 seconds
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
-  }, [images.length]);
+    return () => clearInterval(interval);
+  }, [currentIndex]);
+
+  const goToNextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
 
   return (
-    <div className="relative w-full max-w-lg mx-auto">
-      <div className="overflow-hidden ">
-        <img 
-          src={images[currentIndex]} 
-          alt={`Slide ${currentIndex + 1}`} 
-          className="w-full h-64 object-cover transition duration-500 ease-in-out" 
-        />
+    <div className="relative w-full max-w-lg mx-auto overflow-hidden">
+      <div
+        className="flex transition-transform duration-500 ease-in-out"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Slide ${index + 1}`}
+            className="w-full h-64 object-cover flex-shrink-0"
+          />
+        ))}
       </div>
       {/* Dots */}
       <div className="flex justify-center mt-4">
