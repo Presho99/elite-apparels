@@ -18,13 +18,17 @@ const ShopSection = () => {
   ];
 
   return (
-    <div className="mt-8 space-y-8">
+    <div className="mt-8 space-y-8 lg:mt-12 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
       {sections.map((section, index) => (
-        <Link key={index} to={section.link} className="block relative cursor-pointer">
+        <Link
+          key={index}
+          to={section.link}
+          className="block relative cursor-pointer lg:rounded-lg lg:overflow-hidden lg:shadow-lg"
+        >
           <img
             src={section.imgSrc}
             alt={section.caption}
-            className="w-full h-64 object-cover rounded-lg"
+            className="w-full h-64 object-cover rounded-lg lg:h-96 lg:w-full"
           />
           <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-white text-center">
             <p>{section.caption}</p>
