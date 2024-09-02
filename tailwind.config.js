@@ -5,7 +5,12 @@ module.exports = {
   ],
 
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+      },
+
+    },
     screens: {
       sm: '640px',
       md: '768px',
