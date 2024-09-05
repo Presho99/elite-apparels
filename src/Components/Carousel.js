@@ -1,10 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import one from '../assets/one.jpg';
 import two from '../assets/two.jpg';
+import largeOne from '../assets/sale.jpg'; // Add your large screen images
+import largeTwo from '../assets/sales.jpg';
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [one, two];
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
+
+  const images = isLargeScreen ? [largeOne, largeTwo] : [one, two];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,7 +36,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative w-full max-w-lg mx-auto overflow-hidden">
+    <div className="relative w-full h-64 lg:w-full lg:h-[75vh] max-w-screen-lg mx-auto overflow-hidden">
       <div
         className="flex transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -33,12 +46,12 @@ const Carousel = () => {
             key={index}
             src={image}
             alt={`Slide ${index + 1}`}
-            className="w-full h-64 object-cover flex-shrink-0"
+            className="w-full h-64 lg:h-full object-cover flex-shrink-0"
           />
         ))}
       </div>
       {/* Dots */}
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-4 lg:mt-8">
         {images.map((_, index) => (
           <button
             key={index}
