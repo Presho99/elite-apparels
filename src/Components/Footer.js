@@ -47,6 +47,8 @@ const Footer = () => {
               }`}
             >
               <div className="pl-4 lg:pl-0">
+              <p className="py-1">Delivery</p>
+
                 <p className="py-1">Returns and Refunds</p>
                 <p className="py-1">About Elite</p>
               </div>
@@ -56,12 +58,12 @@ const Footer = () => {
 
           <div className="mb-4 px-4 lg:mb-0 lg:w-1/3">
             {/* Title visible only on large screens */}
-            <h3 className="hidden lg:block font-semibold mb-2 lg:mb-4">Information</h3>
+            <h3 className="hidden lg:block font-semibold mb-2 lg:mb-4">Account</h3>
             <button
               className="w-full text-left font-semibold flex justify-between items-center py-2 lg:hidden"
               onClick={() => toggleSection('information')}
             >
-              Information
+              Account
               <FontAwesomeIcon icon={faCaretRight} className={`transition-transform duration-300 ${openSection === 'information' ? 'rotate-90' : ''}`} />
             </button>
             <div
@@ -70,8 +72,8 @@ const Footer = () => {
               }`}
             >
               <div className="pl-4 lg:pl-0">
-                <p className="py-1">Returns and Refunds</p>
-                <p className="py-1">About Elite</p>
+                <p className="py-1">Terms and Conditions</p>
+                <p className="py-1">Privacy Policy</p>
               </div>
             </div>
           </div>
