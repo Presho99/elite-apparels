@@ -23,7 +23,7 @@ export const products = [
         id: 3,
         title: 'New Arrival 3',
         price: '$11',
-        image: require('../assets/one.jpg'),  // First image
+        image: require('../assets/three.jpg'),  // First image
         color: 'Blue',
         size: 'M',
         category: 'new-arrivals',
@@ -32,7 +32,7 @@ export const products = [
         id: 4,
         title: 'New Arrival 4',
         price: '$40',
-        image: require('../assets/two.jpg'),  // Second image
+        image: require('../assets/five.jpg'),  // Second image
         color: 'Blue',
         size: 'S',
         category: 'new-arrivals',
@@ -41,7 +41,7 @@ export const products = [
         id: 5,
         title: 'New Arrival 5',
         price: '$70',
-        image: require('../assets/one.jpg'),  // First image
+        image: require('../assets/four.jpg'),  // First image
         color: 'Blue',
         size: 'XXL',
         category: 'new-arrivals',
@@ -50,7 +50,7 @@ export const products = [
         id: 6,
         title: 'New Arrival 6',
         price: '$50',
-        image: require('../assets/two.jpg'),  // Second image
+        image: require('../assets/six.jpg'),  // Second image
         color: 'Blue',
         size: 'L',
         category: 'new-arrivals',
@@ -59,7 +59,7 @@ export const products = [
         id: 7,
         title: 'New Arrival 7',
         price: '$110',
-        image: require('../assets/one.jpg'),  // First image
+        image: require('../assets/seven.jpg'),  // First image
         color: 'Blue',
         size: 'XL',
         category: 'new-arrivals',
@@ -68,7 +68,7 @@ export const products = [
         id: 8,
         title: 'New Arrival 8',
         price: '$20',
-        image: require('../assets/two.jpg'),  // Second image
+        image: require('../assets/eight.jpg'),  // Second image
         color: 'Blue',
         size: 'X',
         category: 'new-arrivals',
