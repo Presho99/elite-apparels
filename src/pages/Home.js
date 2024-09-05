@@ -3,13 +3,14 @@ import Carousel from '../Components/Carousel'
 import NewArrivalsCarousel from '../Components/NewArrivalsCarousel'
 import ShopSection from '../Components/ShopSection'
 import Footer from '../Components/Footer'
+import NewCarousel from '../Components/NewCarousel'
 
 
 function Home() {
   return (
     <div>
         <Carousel/>
-        <NewArrivalsCarousel/>
+        <NewCarousel/>
         <ShopSection/>
         <Footer/>
     </div>

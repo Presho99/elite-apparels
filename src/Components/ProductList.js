@@ -1,4 +1,3 @@
-// src/pages/ProductList.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { products } from '../data/productsData';
@@ -6,6 +5,7 @@ import { products } from '../data/productsData';
 function ProductList({ category }) {
   const [sortOrder, setSortOrder] = useState('low-high');
   const [itemsToShow, setItemsToShow] = useState(10);
+  const [loading, setLoading] = useState(true);
 
   const filteredProducts = products.filter(product => product.category === category);
 
@@ -16,6 +16,10 @@ function ProductList({ category }) {
       return parseFloat(b.price.replace('$', '')) - parseFloat(a.price.replace('$', ''));
     }
   });
+
+  const handleImageLoad = () => {
+    setLoading(false);
+  };
 
   return (
     <div className="p-4">
@@ -44,7 +48,19 @@ function ProductList({ category }) {
         {sortedProducts.slice(0, itemsToShow).map((product) => (
           <Link key={product.id} to={`/product/${product.id}`}>
             <div className="border p-2">
-              <img src={product.image} alt={product.title} className="w-full h-48 object-cover" />
+              <div className="w-full h-64 bg-gray-200 relative">
+                {loading && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="loader"></div> {/* You can replace this with any loader component */}
+                  </div>
+                )}
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className={`w-full h-full object-cover rounded-lg ${loading ? 'hidden' : 'block'}`}
+                  onLoad={handleImageLoad}
+                />
+              </div>
               <div className="mt-2 text-lg font-semibold">{product.title}</div>
               <div className="text-gray-500">{product.price}</div>
             </div>
