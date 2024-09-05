@@ -52,6 +52,30 @@ const Footer = () => {
               </div>
             </div>
           </div>
+          {/* Account  */}
+
+          <div className="mb-4 px-4 lg:mb-0 lg:w-1/3">
+            {/* Title visible only on large screens */}
+            <h3 className="hidden lg:block font-semibold mb-2 lg:mb-4">Information</h3>
+            <button
+              className="w-full text-left font-semibold flex justify-between items-center py-2 lg:hidden"
+              onClick={() => toggleSection('information')}
+            >
+              Information
+              <FontAwesomeIcon icon={faCaretRight} className={`transition-transform duration-300 ${openSection === 'information' ? 'rotate-90' : ''}`} />
+            </button>
+            <div
+              className={`overflow-hidden lg:overflow-visible lg:block transition-max-height duration-500 ease-in-out ${
+                openSection === 'information' || window.innerWidth >= 1024 ? 'max-h-40' : 'max-h-0'
+              }`}
+            >
+              <div className="pl-4 lg:pl-0">
+                <p className="py-1">Returns and Refunds</p>
+                <p className="py-1">About Elite</p>
+              </div>
+            </div>
+          </div>
+
 
           {/* Delivery Section */}
           <div className="mb-4 px-4 lg:mb-0 lg:w-1/3">
