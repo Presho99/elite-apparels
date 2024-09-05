@@ -43,7 +43,8 @@ const NewCarousel = () => {
 
   return (
     <div className="relative p-4 overflow-hidden">
-         <h2 className="text-2xl font-bold text-center mb-6">New Arrivals</h2>
+      <h2 className="text-2xl font-bold text-center mb-6">New Arrivals</h2>
+      
       {/* Left Chevron */}
       <div className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer p-2 bg-gray-700 text-white rounded-full">
         <FontAwesomeIcon icon={faChevronLeft} size="2x" onClick={handlePrev} />
@@ -54,13 +55,17 @@ const NewCarousel = () => {
         {displayedImages.map((product, index) => (
           <div
             key={product.id}
-            className={`w-full ${window.innerWidth >= 1024 ? 'lg:w-1/5' : window.innerWidth >= 768 ? 'md:w-1/3' : 'sm:w-full'} h-[400px]`}
+            className={`w-full ${window.innerWidth >= 1024 ? 'lg:w-1/5' : window.innerWidth >= 768 ? 'md:w-1/3' : 'sm:w-full'} h-[400px] flex flex-col items-center`}
           >
             <img
               src={product.image}
               alt={product.title}
-              className="w-full h-[400px] object-cover"
+              className="w-full h-3/4 object-cover"
             />
+            <div className="text-center p-2">
+              <h3 className="text-lg  mb-1">{product.title}</h3>
+              <p className="text-lg font-bold">{product.price}</p>
+            </div>
           </div>
         ))}
       </div>
